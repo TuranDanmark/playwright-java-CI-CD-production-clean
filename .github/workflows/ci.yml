@@ -27,12 +27,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker Image
-        run: docker build -t playwright-tests .
-
-      - name: Run Tests in Docker
-        run: docker run playwright-tests
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
