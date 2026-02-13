@@ -27,9 +27,9 @@ jobs:
           java-version: 21
           cache: maven
 
-      - name: Install Playwright Browsers and Dependencies
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
-        
+      - name: Install Playwright Browsers
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+
       - name: Run Tests
         run: mvn clean test -Dbrowser=${{ matrix.browser }} -Dheadless=true
 
@@ -44,6 +44,12 @@ jobs:
         with:
           name: surefire-${{ matrix.browser }}
           path: target/surefire-reports
+
+      - name: Build Docker Image
+        run: docker build -t playwright-tests .
+
+      - name: Run Tests in Docker
+        run: docker run playwright-tests
 
 
   build-report:
@@ -76,11 +82,14 @@ jobs:
         run: |
           mkdir -p target/allure-results
           cp -r allure-results-temp/**/allure-results/* target/allure-results || true
+
       - name: Generate Allure Report
         run: mvn allure:report
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/allure-maven-plugin
+          publish_branch: gh-pages
+          force_orphan: true
