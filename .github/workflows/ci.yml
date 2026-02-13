@@ -40,7 +40,7 @@ jobs:
         run: mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
 
       - name: Run Tests
-        run: mvn clean test -Dbrowser=${{ matrix.browser }}
+        run: mvn clean test -Dheadless=true -Dbrowser=${{ matrix.browser}}
 
       - name: Upload Allure Results
         if: always()
