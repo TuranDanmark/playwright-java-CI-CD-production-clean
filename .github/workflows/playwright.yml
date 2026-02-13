@@ -3,7 +3,8 @@ name: Playwright Java Enterprise CI
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
 
 jobs:
 
@@ -45,12 +46,6 @@ jobs:
           name: surefire-${{ matrix.browser }}
           path: target/surefire-reports
 
-      - name: Build Docker Image
-        run: docker build -t playwright-tests .
-
-      - name: Run Tests in Docker
-        run: docker run playwright-tests
-
 
   build-report:
     name: Build Allure Report
@@ -82,14 +77,11 @@ jobs:
         run: |
           mkdir -p target/allure-results
           cp -r allure-results-temp/**/allure-results/* target/allure-results || true
-
       - name: Generate Allure Report
         run: mvn allure:report
 
-      - name: Deploy Allure Report to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/allure-maven-plugin
-          publish_branch: gh-pages
-          force_orphan: true
