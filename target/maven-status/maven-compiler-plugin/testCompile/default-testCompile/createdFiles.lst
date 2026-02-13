@@ -1,0 +1,12 @@
+com\elvira\pages\HomePage.class
+com\elvira\utils\TestListener.class
+com\elvira\core\BrowserFactory.class
+com\elvira\core\RetryExtension.class
+com\elvira\tests\TodoTest.class
+com\elvira\core\AllureListener.class
+com\elvira\core\ConfigReader.class
+com\elvira\pages\TodoPage.class
+com\elvira\tests\HomePageTest.class
+com\elvira\core\BaseTest.class
+com\elvira\core\BrowserType.class
+com\elvira\config\Config.class
