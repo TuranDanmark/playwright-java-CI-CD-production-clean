@@ -49,12 +49,6 @@ jobs:
           name: allure-results-${{ matrix.browser }}
           path: target/allure-results
 
-      - name: Build Docker Image
-        run: docker build -t playwright-tests .
-
-      - name: Run Tests in Docker
-        run: docker run playwright-tests
-
       # ---------- SETUP JAVA FOR REPORT ----------
       - name: Setup JDK 21
         uses: actions/setup-java@v4
