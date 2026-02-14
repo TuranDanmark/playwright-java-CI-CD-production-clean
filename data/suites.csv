@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Feb 14 00:12:15 UTC 2026","Sat Feb 14 00:12:20 UTC 2026","4658","","com.elvira.tests.TodoTest","","com.elvira.tests.TodoTest","userCanCompleteTodo","userCanCompleteTodo()","Assert that user can add a new todo item"
+"passed","Sat Feb 14 00:12:20 UTC 2026","Sat Feb 14 00:12:21 UTC 2026","1309","","com.elvira.tests.TodoTest","","com.elvira.tests.TodoTest","userCanAddTodoItem","userCanAddTodoItem()","Assert that user can add a new todo item"
+"passed","Sat Feb 14 00:12:15 UTC 2026","Sat Feb 14 00:12:20 UTC 2026","4659","","com.elvira.tests.TodoTest","","com.elvira.tests.TodoTest","userCanAddTodo","userCanAddTodo()","Assert that user can add a new todo item"
+"passed","Sat Feb 14 00:12:15 UTC 2026","Sat Feb 14 00:12:21 UTC 2026","5395","","com.elvira.tests.HomePageTest","","com.elvira.tests.HomePageTest","UserCanOpenDocsPage","UserCanOpenDocsPage()","Verify that user can asserthat Get started"
+"passed","Sat Feb 14 00:12:15 UTC 2026","Sat Feb 14 00:12:20 UTC 2026","5082","","com.elvira.tests.TodoTest","","com.elvira.tests.TodoTest","userCanFilterCompletedTasks","userCanFilterCompletedTasks()","Verify that user can add a new todo item"

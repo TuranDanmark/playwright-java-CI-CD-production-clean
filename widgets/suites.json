@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"17f297cdf339d4f5235c589d063a1a33","name":"com.elvira.tests.TodoTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":4,"unknown":0,"total":4}},{"uid":"15e4a069f8029c6a4eb03515b5c98d14","name":"com.elvira.tests.HomePageTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
