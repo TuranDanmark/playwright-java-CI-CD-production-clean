@@ -21,26 +21,26 @@ jobs:
       id-token: write
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
+
 
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: ${{ matrix.java }}
+          cache: maven
 
-      - name: Cache Maven packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: maven-${{ hashFiles('**/pom.xml') }}
 
-      - name: Install Playwright Browsers
-        run: mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+      - name: Install Playwright Browsers and Dependencies
+        run: mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
+
 
       - name: Run Tests
         run: mvn clean test -Dheadless=true -Dbrowser=${{ matrix.browser}}
+
 
       - name: Upload Allure Results
         if: always()
@@ -48,6 +48,7 @@ jobs:
         with:
           name: allure-results-${{ matrix.browser }}
           path: target/allure-results
+
 
       - name: Generate Allure Report
         if: always()
