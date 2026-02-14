@@ -42,7 +42,7 @@ jobs:
 
       # Install browsers + deps
       - name: Install Playwright Browsers
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium firefox webkit --force"
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium firefox webkit --force --with-deps"
 
       # Run tests with retry support
       - name: Run Tests
@@ -63,6 +63,9 @@ jobs:
   report:
     needs: test
     runs-on: ubuntu-latest
+    container:
+        image: mcr.microsoft.com/playwright/java:v1.42.0-jammy
+
 
     steps:
       - name: Checkout repository
