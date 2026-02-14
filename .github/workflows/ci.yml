@@ -42,7 +42,7 @@ jobs:
 
       # Install browsers + deps
       - name: Install Playwright Browsers
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium firefox webkit"
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium firefox webkit --with-deps"
 
       # Run tests with retry support
       - name: Run Tests
@@ -52,6 +52,7 @@ jobs:
           -Dheadless=true \
           -DretryCount=1
 
+        # Upload allure results
       - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
@@ -88,9 +89,11 @@ jobs:
           gh_pages: gh-pages
           keep_reports: 20
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-report
+          force_orphan: true
