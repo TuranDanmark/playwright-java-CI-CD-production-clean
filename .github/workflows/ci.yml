@@ -42,7 +42,7 @@ jobs:
 
       # Install browsers + deps
       - name: Install Playwright Browsers
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium firefox webkit --with-deps"
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium firefox webkit --with-deps --force"
 
       # Run tests with retry support
       - name: Run Tests
