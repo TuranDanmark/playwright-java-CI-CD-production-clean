@@ -50,7 +50,7 @@ jobs:
       - name: Install Playwright
         run: mvn exec:java -e \
           -Dexec.mainClass=com.microsoft.playwright.CLI \
-          -Dexec.args="install chromium firefox webkit --with-deps"
+          -Dexec.args="install chromium firefox webkit"
 
 
       # Run tests with retry support
