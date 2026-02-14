@@ -48,8 +48,7 @@ jobs:
 
       # Install browsers + deps
       - name: Install Playwright Browsers
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
-
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
 
       # Run tests with retry support
       - name: Run Tests
