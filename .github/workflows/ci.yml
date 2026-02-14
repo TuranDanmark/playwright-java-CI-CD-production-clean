@@ -49,18 +49,6 @@ jobs:
           name: allure-results-${{ matrix.browser }}
           path: target/allure-results
 
-      # ---------- SETUP JAVA FOR REPORT ----------
-
-      - name: Install Playwright Browsers
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
-
       - name: Generate Allure Report
+        if: always()
         run: mvn allure:report
-
-      - name: Deploy Allure Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/site/allure-maven-plugin
-          publish_branch: gh-pages
-          force_orphan: true
