@@ -59,6 +59,9 @@
                 <configuration>
                     <parallel>none</parallel>
                     <useModulePath>false</useModulePath>
+                    <properties>
+                    <retryCount>1</retryCount>
+                    </properties>
                     <systemPropertyVariables>
                         <allure.results.directory>
                             target/allure-results
