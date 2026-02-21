@@ -1,6 +1,6 @@
 package com.elvira.tests;
 
-import com.elvira.core.BaseTest;
+import com.elvira.core.base.BaseTest;
 import com.elvira.pages.TodoPage;
 import com.elvira.utils.TestListener;
 import io.qameta.allure.*;
@@ -34,9 +34,10 @@ assertThat(todoPage.getTodoItems()).hasCount(1);
 @Description("Assert that user can add a new todo item")
 @Severity(SeverityLevel.CRITICAL)
 void userCanAddTodo() {
-    page.navigate("https://demo.playwright.dev/todomvc");
 
     TodoPage todoPage = new TodoPage(getPage());
+    todoPage.navigate();
+
     todoPage.addTodo("Buy milk");
 
     assertThat(page.locator("text=Buy milk")).isVisible();

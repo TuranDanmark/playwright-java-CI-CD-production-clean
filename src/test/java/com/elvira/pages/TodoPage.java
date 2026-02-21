@@ -1,7 +1,6 @@
 package com.elvira.pages;
 
-
-import com.elvira.config.Config;
+import com.elvira.core.config.FrameworkConfig;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -21,7 +20,7 @@ public class TodoPage {
     }
 
     public void navigate() {
-        page.navigate(Config.baseUrl());
+        page.navigate(FrameworkConfig.baseUrl());
     }
 
     public void addTodo(String text) {

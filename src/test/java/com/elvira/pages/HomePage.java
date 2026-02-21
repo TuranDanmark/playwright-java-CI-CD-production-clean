@@ -1,6 +1,6 @@
 package com.elvira.pages;
 
-import com.elvira.config.Config;
+import com.elvira.core.config.FrameworkConfig;
 import com.microsoft.playwright.Page;
 
 public class HomePage {
@@ -12,7 +12,7 @@ public class HomePage {
     }
 
     public void navigate() {
-        page.navigate(Config.baseUrl1());
+        page.navigate(FrameworkConfig.baseUrl1());
     }
 
     public void clickGetStarted() {

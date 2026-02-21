@@ -1,6 +1,6 @@
 package com.elvira.tests;
 
-import com.elvira.core.BaseTest;
+import com.elvira.core.base.BaseTest;
 import com.elvira.pages.HomePage;
 import com.elvira.utils.TestListener;
 

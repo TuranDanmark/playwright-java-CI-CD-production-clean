@@ -6,7 +6,6 @@ import io.qameta.allure.Allure;
 import org.junit.jupiter.api.extension.*;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,7 +19,7 @@ public class TestListener implements TestWatcher, BeforeEachCallback, AfterEachC
         Object testInstance = context.getRequiredTestInstance();
 
         try {
-            Field field = testInstance.getClass().getSuperclass().getDeclaredField("page");
+            var field = testInstance.getClass().getSuperclass().getDeclaredField("page");
             field.setAccessible(true);
             page = (Page) field.get(testInstance);
         } catch (Exception e) {
